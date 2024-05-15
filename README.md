@@ -10,6 +10,8 @@ The main is to gain insights into global demographics and uncover interesting pa
 1. Which countries have the highest and lowest world population percentage?
 2. Which countries have the highest and lowest growth rate?
 3. How does the population in various year correlate to each other?
+4. Are there any continents that have growth faster and in which ways?
+5. Are there any outliers in the dataset?
 
 ## Procedure used
 1. The first steps in performing an EDA is to get an overall view of the data
@@ -34,5 +36,20 @@ The main is to gain insights into global demographics and uncover interesting pa
     <img width="1613" alt="image" src="https://github.com/FaridahMut/Exploratory-Data-Analysis-in-Pandas/assets/160776452/e40306ae-ed36-4e7a-83a8-fa372f90d17b">
     
 3. Looking at the correlation in the data, we use a hitmap to have a clear visualization by using the function **sns.heatmap() **and edit the dimension of the hitmap by using **plt.rcParams['figure.figsize'] = (20,7)**
+   * We can see the populations in different years and world population percentage are highly correlated
+   * The other variables like density per km2 and growth rate are not correlated to the population
+   * Area is somewhat correclated, which indicates that larger Area larger population
+   
 <img width="467" alt="image" src="https://github.com/FaridahMut/Exploratory-Data-Analysis-in-Pandas/assets/160776452/36bae5dc-36c7-414c-bf39-3c91c5146ae8">
+
+4. To see which continents have the fastest growth rate, we will growth the data by continents and get the mean values and sort in descending order **df.groupby('Continent').mean().sort_values(by="2022 Population",ascending=False)**.
+   * we also use the transpose function to switch the rows and columns before plotting the chart
+   * We can see** Asia** has been in the lead from 1970s and has a **boom on early 2000s**
+   * **Other continent**s have a **steady growth** 
+   * **Africa's** population has **nearly doubled** in the last 50 years
+   * **Oceania** remaining almost **the same**.
+     <img width="601" alt="image" src="https://github.com/FaridahMut/Exploratory-Data-Analysis-in-Pandas/assets/160776452/9b4c571c-8b92-4a50-b9ce-edfe703158bc">
+
+5. I used box plots to understand the distribution of the data and to find any outliers.
+  * using the function **df.boxplot()** there are no outliers in the dataset
 
